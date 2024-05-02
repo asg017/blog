@@ -57,7 +57,10 @@ md.use(
 
 const FrontmatterSchema = v.object({
   title: v.string(),
+  description: v.string(),
+  share_photo_url: v.string(),
   created_at: v.date(),
+  updated_at: v.optional(v.date()),
   build: v.optional(v.string()),
   skip: v.optional(v.boolean()),
 });
@@ -74,10 +77,16 @@ function logSuccess(path: string) {
   console.log(`%c✓%c ${path}`, "color: green", "color: unset");
 }
 
+import { expandGlobSync } from "https://deno.land/std@0.223.0/fs/expand_glob.ts";
+
 async function main() {
   const posts: Post[] = [];
 
   emptyDirSync("dist");
+  for (const entry of expandGlobSync("./static/*")) {
+    copySync(entry.path, "dist/" + entry.name);
+  }
+
   for (const postDir of Deno.readDirSync("./posts")) {
     const year = postDir.name;
     for (const entry of Deno.readDirSync("./posts/" + postDir.name)) {
@@ -90,8 +99,8 @@ async function main() {
       }
       const mdSource = Deno.readTextFileSync(mdPath);
       const { attrs, body } = extractFrontmatter(mdSource);
+      if (attrs.skip) continue;
       const frontmatter = v.parse(FrontmatterSchema, attrs);
-      if (frontmatter.skip) continue;
       if (frontmatter.build) {
         const [cmd, ...args] = frontmatter.build.split(" ");
         const process = await new Deno.Command(cmd, {
@@ -135,12 +144,12 @@ async function main() {
   );
   logSuccess(path.join("dist", "index.html"));
 
-  copySync(
+  /*copySync(
     "static/MonaspaceNeon-Regular.otf",
     "dist/MonaspaceNeon-Regular.otf"
   );
   copySync("static/theme.js", "dist/theme.js");
-  copySync("static/base.css", "dist/base.css");
+  copySync("static/base.css", "dist/base.css");*/
 }
 
 if (import.meta.main) main();

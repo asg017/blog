@@ -12,6 +12,31 @@ export function PostPage({ post }: { post: Post }) {
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{post.frontmatter.title} | Alex Garcia's Blog</title>
+
+        <meta name="description" content={post.frontmatter.description} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:image" content={post.frontmatter.share_photo_url} />
+
+        <meta name="twitter:creator" content="@agarcia_me" />
+        <meta
+          property="og:url"
+          content={`https://alexgarcia.xyz/blog/${post.path}`}
+        />
+        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:image" content={post.frontmatter.share_photo_url} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:description"
+          content={post.frontmatter.description}
+        />
+        <meta
+          property="og:updated_time"
+          content={
+            post.frontmatter.updated_at?.toISOString() ??
+            post.frontmatter.created_at.toISOString()
+          }
+        />
+
         <style dangerouslySetInnerHTML={{ __html: pageCss }}></style>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -24,6 +49,11 @@ export function PostPage({ post }: { post: Post }) {
           rel="stylesheet"
         ></link>
         <script src="../../theme.js"></script>
+        <script
+          defer
+          data-domain="alexgarcia.xyz/blog"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </head>
       <body>
         <main>

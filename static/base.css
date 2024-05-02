@@ -1,7 +1,7 @@
 @font-face {
   font-family: MonaspaceNeon;
   font-weight: bold;
-  src: url("/static/MonaspaceNeon-Regular.otf") format("opentype");
+  src: url("MonaspaceNeon-Regular.otf") format("opentype");
 }
 
 :root {

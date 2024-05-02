@@ -1,15 +1,13 @@
 ---
 title: I'm writing a new vector search SQLite Extension
+description: sqlite-vec is an upcoming vector search SQLite extension, coming soon!
 created_at: 2024-04-29
 build: make dist
+share_photo_url: https://alexgarcia.xyz/blog/1.png
 ---
 
 <script type="module" src="./index.min.js"></script>
 <link rel="stylesheet" href="./index.min.css"></link>
-<!--<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">-->
-<!--
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></link>
--->
 
 <svg id="hero"></svg>
 

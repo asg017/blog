@@ -12,6 +12,11 @@ export function HomePage({ posts }: { posts: Post[] }) {
         <title>Alex Garcia's Blog</title>
         <script src="./theme.js"></script>
         <link rel="stylesheet" href="./base.css" />
+        <script
+          defer
+          data-domain="alexgarcia.xyz/blog"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </head>
       <body>
         <main>
