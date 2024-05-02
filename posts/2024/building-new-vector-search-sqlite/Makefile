@@ -1,13 +1,13 @@
 site: dist
 
 sqlite3.wasm:
-	curl -L -o -q $@ https://github.com/asg017/blog/releases/download/blobs/sqlite3.wasm
+	curl -L -o $@ https://github.com/asg017/blog/releases/download/blobs/sqlite3.wasm
 
 sqlite3.mjs:
-	curl -L -o -q $@ https://github.com/asg017/blog/releases/download/blobs/sqlite3.mjs
+	curl -L -o $@ https://github.com/asg017/blog/releases/download/blobs/sqlite3.mjs
 
 movies.bit.db:
-	curl -L -o -q $@ https://github.com/asg017/blog/releases/download/blobs/movies.bit.db
+	curl -L -o $@ https://github.com/asg017/blog/releases/download/blobs/movies.bit.db
 
 
 node_modules: package.json package-lock.json
