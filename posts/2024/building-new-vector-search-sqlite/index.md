@@ -47,7 +47,7 @@ dependencies. It will provide custom SQL functions and virtual tables for fast
 vector search, as well as other tools and utilities for working with vectors
 (quantization, JSON/BLOB/numpy conversions, vector arithmetic, etc.).
 
-A quick same of what vector search will look like with `sqlite-vec`, in pure
+A quick sample of what vector search will look like with `sqlite-vec`, in pure
 SQL:
 
 ```sqlite
@@ -109,8 +109,8 @@ research. There will be better support for "adative-length embeddings" (aka
 This means more control over the speed, accuracy, and disk space that your
 vectors take up.
 
-Though initial, `sqlite-vec` will only support exhaustive full-scan vector
-search! There will be no "approximate nearest neighbors" (ANN) options. But I
+Though initially, `sqlite-vec` will only support exhaustive full-scan vector
+search. There will be no "approximate nearest neighbors" (ANN) options. But I
 hope to add IVF + HNSW in the future!
 
 ## Demo
@@ -136,7 +136,7 @@ Here we see the `articles` table has columns like `title`, `release_date`, and
 `overview`. The `overview` column here is important - it's a very short sentence
 describing the plot of the movie. We also have the `vec_articles` virtual table,
 which stores embeddings of the `articles.overview` as the `overview_embeddings`
-column. Thy are binary vector of 768 dimensions, which takes up 96 bytes
+column. Thy are binary vectors with 768 dimensions, which takes up 96 bytes
 (`768 / 8 = 96`).
 
 Now let's see how a KNN-style search works! Here's a lil' table select
@@ -149,7 +149,7 @@ parameter in this KNN SQL query!
 
 <div id="target-code"></div>
 
-Those are the 10 closest movies, to the one you selected! The "closest" one
+Those are the 10 closest movies to the one you selected! The "closest" one
 (using hamming distance, because it's a binary vector) will always be the same
 movie, with a distance of 0. Keep in mind, embedding a single-sentence plot
 description of a small movie dataset doesn't give the best results (and binary
