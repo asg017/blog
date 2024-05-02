@@ -1,7 +1,7 @@
 ---
 title: I'm writing a new vector search SQLite Extension
 description: sqlite-vec is an new vector search SQLite extension, coming soon!
-created_at: 2024-04-29
+created_at: 2024-05-02
 build: make dist
 share_photo_url: https://alexgarcia.xyz/blog/1.png
 ---
