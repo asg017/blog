@@ -1,0 +1,6 @@
+node_modules
+
+
+movies.bit.db
+sqlite3.mjs
+sqlite3.wasm

@@ -1,0 +1,90 @@
+@font-face {
+  font-family: MonaspaceNeon;
+  font-weight: bold;
+  src: url("/MonaspaceNeon-Regular.otf") format("opentype");
+}
+
+:root {
+  --blog-link-color: #7287fd;
+  --text-color: black;
+  --bg-color: white;
+}
+
+html.dark {
+  --blog-link-color: #b4befe;
+  --text-color: white;
+  --bg-color: #181825;
+}
+
+html {
+  background-color: var(--bg-color);
+}
+
+main {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+* {
+  color: var(--text-color);
+  /*font-family: "Inter", sans-serif;*/
+  font-family: "Helvetica Neue", helvetica, sans-serif;
+  font-optical-sizing: auto;
+  /*font-weight: ;*/
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+a {
+  color: var(--blog-link-color); /*#cba6f7;*/
+}
+
+h1,
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+li::marker {
+  margin: 0;
+}
+
+code {
+  font-family: MonaspaceNeon;
+}
+
+pre {
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.theme::before {
+  content: "⏼";
+}
+button.theme {
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: var(--blog-link-color);
+}
+
+/*
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+*/

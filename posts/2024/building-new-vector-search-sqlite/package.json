@@ -1,0 +1,19 @@
+{
+  "name": "new-vector-search-sqlite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alex.garcia/sqlite-wasm-toolkit": "^0.0.1-alpha.12",
+    "@observablehq/inputs": "^0.10.6",
+    "d3-selection": "^3.0.0",
+    "d3-transition": "^3.0.1",
+    "esbuild": "^0.20.2"
+  }
+}
