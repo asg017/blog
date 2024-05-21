@@ -25,7 +25,11 @@ demos/index.html: demos
 all: demos/demo.bun.ts demos/demo.deno.ts demos/demo.mjs demos/demo.py demos/demo.c demos/demo.go demos/demo.rb demos/demo.rs demos/demo.sql demos/demo.py demos/index.html
 
 
-dist: index.js all
+node_modules: package.json package-lock.json
+	npm i
+	touch $@
+
+dist: index.js all node_modules
 	rm -rf $@ || true
 	mkdir $@
 	./node_modules/.bin/esbuild \
