@@ -226,6 +226,11 @@ main {
   margin: 0 auto;
 }
 
+summary {
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
 p,
 li,
 h1,
@@ -233,7 +238,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+details,
+summary {
   /*font-family: "Helvetica Neue", helvetica, sans-serif;*/
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -246,13 +253,34 @@ p {
   line-height: 22px;
 }
 
+a {
+  color: var(--ctp-blue);
+}
+a:visited {
+  color: var(--ctp-lavender);
+}
 code {
   font-family: MonaspaceNeon;
+  background: var(--ctp-crust);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+html.dark code {
+  background: unset;
+  padding: unset;
+}
+a code {
+  color: var(--ctp-blue);
+}
+pre code {
+  background: unset;
+  padding: unset;
 }
 pre {
   padding: 0.75rem;
   border-radius: 0.25rem;
   overflow: auto;
+  background: var(--ctp-crust);
 }
 @font-face {
   font-family: MonaspaceNeon;
@@ -263,13 +291,13 @@ pre {
 html .shiki,
 html .shiki span {
   color: var(--shiki-light);
-  background-color: var(--shiki-light-bg);
+  /*background-color: var(--shiki-light-bg);*/
 }
 
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark);
-  background-color: var(--shiki-dark-bg);
+  /*background-color: var(--shiki-dark-bg);*/
 }
 
 .shiki .line.highlighted {

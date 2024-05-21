@@ -11,6 +11,9 @@ import { renderToString } from "https://esm.sh/preact-render-to-string@5.1.19?de
 import * as v from "npm:valibot";
 // @deno-types="npm:@types/markdown-it"
 import markdownit from "npm:markdown-it";
+import { include } from "npm:@mdit/plugin-include";
+import mdAnchor from "npm:markdown-it-anchor";
+import slugify from "npm:@sindresorhus/slugify";
 import {
   // won't work with SQL until this is released: https://github.com/shikijs/shiki/commit/cc13539ea19d690e07de6b52478844f846f80f00
   // transformerNotationHighlight,
@@ -42,6 +45,9 @@ md.use(
         import("npm:shiki/langs/c.mjs"),
         import("npm:shiki/langs/go.mjs"),
         import("npm:shiki/langs/rust.mjs"),
+        import("npm:shiki/langs/javascript.mjs"),
+        import("npm:shiki/langs/html.mjs"),
+        import("npm:shiki/langs/ruby.mjs"),
       ],
     }),
     {
@@ -55,6 +61,19 @@ md.use(
   )
 );
 
+md.use(include, {
+  currentPath: (env) => env.filePath,
+});
+
+md.use(mdAnchor, {
+  level: 1,
+  slugify: slugify,
+  permalink: true,
+  // renderPermalink: (slug, opts, state, permalink) => {},
+  permalinkClass: "header-anchor",
+  //permalinkSymbol: "¶",
+  permalinkBefore: true,
+});
 const FrontmatterSchema = v.object({
   title: v.string(),
   description: v.string(),
@@ -126,7 +145,10 @@ async function main() {
         body,
         slug,
         path: `${year}/${slug}/index.html`,
-        render: () => md.render(body),
+        render: () =>
+          md.render(body, {
+            filePath: mdPath,
+          }),
       };
       const html = renderToString(<PostPage post={post} />);
       posts.push(post);

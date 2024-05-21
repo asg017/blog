@@ -1,0 +1,37 @@
+:root {
+  --svg-bg: var(--ctp-crust);
+  --hero-c1: var(--ctp-flamingo);
+  --hero-c2: var(--ctp-pink);
+  --hero-c3: var(--ctp-mauve);
+  --hero-c4: var(--ctp-red);
+  --hero-c5: var(--ctp-maroon);
+  --hero-c6: var(--ctp-peach);
+  --hero-c7: var(--ctp-yellow);
+  --hero-c8: var(--ctp-green);
+  --hero-c9: var(--ctp-teal);
+  --hero-c10: var(--ctp-sky);
+  --hero-c11: var(--ctp-sapphire);
+  --hero-c12: var(--ctp-blue);
+  --hero-c13: var(--ctp-lavender);
+}
+
+.swt-editor {
+  --swt-code-bg: var(--ctp-base);
+  --swt-code-comment: var(--ctp-subtext1); /*#5f6368;*/
+  --swt-code-keyword: var(--ctp-mauve);
+  --swt-code-identifier: var(--ctp-blue);
+  --swt-code-string: var(--ctp-green);
+  --swt-code-types: var(--ctp-yellow);
+  --swt-code-literal: var(--ctp-peach);
+  --swt-code-params: var(--ctp-pink);
+
+  --swt-widget-border: var(--ctp-overlay2);
+
+  --swt-result-th-bg: var(--ctp-crust);
+  --swt-result-td-bg: var(--ctp-mantle);
+  --swt-result-cell-border-color: #1b1b1b;
+}
+
+.cm-activeLine {
+  background-color: var(--ctp-mantle) !important;
+}

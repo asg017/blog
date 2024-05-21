@@ -1,0 +1,17 @@
+{
+  "name": "sql-vector-search-languages",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "d3-selection": "^3.0.0",
+    "d3-transition": "^3.0.1",
+    "esbuild": "^0.21.3"
+  }
+}
