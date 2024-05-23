@@ -1,7 +1,7 @@
 ---
-title: Vector search in 7 languages using SQL
-description: sqlite-vec  TODO
-created_at: 2024-05-15
+title: Vector search in 7 different programming languages using SQL
+description: Using sqlite-vec in different programming languages and runtimes
+created_at: 2024-05-23
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/2.png
 ---
