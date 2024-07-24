@@ -33,7 +33,7 @@ But this feature never made sense for `sqlite-vec`. It's a [single C file](https
 
 At the same time, I don't want to `pip install openai` or `pip install sentence-transformers` every time I want to generate embeddings on some text. I want something that is lightweight, a single binary, and works with SQLite.
 
-So, with the help of [`llama.cpp`'s embeddings support](https://github.com/asg017/sqlite-vec/blob/main/sqlite-vec.c), `sqlite-lembed` is born!
+So, with the help of [`llama.cpp`'s embeddings support](https://github.com/ggerganov/llama.cpp/pull/5796), `sqlite-lembed` is born!
 
 ## Usage
 
