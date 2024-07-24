@@ -2,6 +2,7 @@ SRC_DIR := posts/2024
 DIST_DIR := dist/2024
 
 serve:
+	open http://localhost:8000
 	python -m http.server -d dist
 site:
 	deno run \
