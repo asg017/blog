@@ -41,18 +41,22 @@ export function HomePage({ posts }: { posts: Post[] }) {
           </section>
           <section>
             <h2>All posts</h2>
-            {posts.map((post) => (
-              <div>
-                <li>
-                  <span>
-                    {post.frontmatter.created_at
-                      .toISOString()
-                      .substring(0, "YYYY-MM-DD".length)}
-                  </span>
-                  : <a href={post.path}>{post.frontmatter.title}</a>
-                </li>
-              </div>
-            ))}
+            {posts
+              .sort(
+                (a, b) => a.frontmatter.created_at - b.frontmatter.created_at
+              )
+              .map((post) => (
+                <div>
+                  <li>
+                    <span>
+                      {post.frontmatter.created_at
+                        .toISOString()
+                        .substring(0, "YYYY-MM-DD".length)}
+                    </span>
+                    : <a href={post.path}>{post.frontmatter.title}</a>
+                  </li>
+                </div>
+              ))}
           </section>
         </main>
       </body>
