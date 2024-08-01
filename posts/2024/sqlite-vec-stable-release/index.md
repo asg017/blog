@@ -33,7 +33,7 @@ The first "stable" `v0.1.0` release of `sqlite-vec` is finally out! You can inst
 - [`cargo add sqlite-vec`](https://alexgarcia.xyz/sqlite-vec/rust.html) for Rust
 - [`go get github.com/asg017/sqlite-vec-go-bindings/cgo`](https://alexgarcia.xyz/sqlite-vec/go.html#cgo) for Go using CGO
 - [`go get github.com/asg017/sqlite-vec-go-bindings/ncruces`](https://alexgarcia.xyz/sqlite-vec/go.html#ncruces) for Go in non-CGO WASM flavor
-- `curl -L ....install.sh | sh` if you're feeling brave
+- `curl -L https://github.com/asg017/sqlite-vec/releases/download/v0.1.0/install.sh | sh` if you're feeling brave
 
 First introduced in [my previous blog post](http://alexgarcia.xyz/blog/2024/building-new-vector-search-sqlite/index.html), `sqlite-vec` is a no-dependency SQLite extension for vector search, written entirely in a single C file. It's extremely portable, works in most operating systems and environments, and is MIT/Apache-2 dual licensed.
 
