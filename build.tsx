@@ -1,13 +1,14 @@
 /** @jsx h */
 
-import { extract as extractFrontmatter } from "https://deno.land/std@0.223.0/front_matter/yaml.ts";
-import * as path from "https://deno.land/std@0.223.0/path/mod.ts";
-import {
-  ensureDirSync,
-  emptyDirSync,
-} from "https://deno.land/std@0.223.0/fs/mod.ts";
+import { extract as extractFrontmatter } from "jsr:@std/front-matter/yaml";
+import { ensureDirSync, emptyDirSync } from "jsr:@std/fs";
+import { copySync } from "jsr:@std/fs/copy";
+import { expandGlobSync } from "jsr:@std/fs/expand-glob";
+import * as path from "jsr:@std/path";
+
 import { h } from "https://esm.sh/preact@10.5.15";
 import { renderToString } from "https://esm.sh/preact-render-to-string@5.1.19?deps=preact@10.5.15";
+
 import * as v from "npm:valibot";
 // @deno-types="npm:@types/markdown-it"
 import markdownit from "npm:markdown-it";
@@ -21,16 +22,17 @@ import {
 } from "npm:@shikijs/transformers";
 import { fromHighlighter } from "npm:@shikijs/markdown-it/core";
 import { getHighlighter } from "npm:shiki";
+
 import { PostPage } from "./Post.tsx";
 import { HomePage } from "./Home.tsx";
-import { copySync } from "https://deno.land/std@0.223.0/fs/copy.ts";
+
+const sqlite = JSON.parse(
+  Deno.readTextFileSync("static/sqlite.tmlanguage.json")
+);
 
 const md = markdownit({
   html: true,
 });
-const sqlite = JSON.parse(
-  Deno.readTextFileSync("static/sqlite.tmlanguage.json")
-);
 md.use(
   fromHighlighter(
     await getHighlighter({
@@ -74,6 +76,7 @@ md.use(mdAnchor, {
   //permalinkSymbol: "¶",
   permalinkBefore: true,
 });
+
 const FrontmatterSchema = v.object({
   title: v.string(),
   description: v.string(),
@@ -95,8 +98,6 @@ export interface Post {
 function logSuccess(path: string) {
   console.log(`%c✓%c ${path}`, "color: green", "color: unset");
 }
-
-import { expandGlobSync } from "https://deno.land/std@0.223.0/fs/expand_glob.ts";
 
 async function main() {
   const posts: Post[] = [];
