@@ -3,7 +3,7 @@ DIST_DIR := dist/2024
 
 serve:
 	open http://localhost:8000
-	python -m http.server -d dist
+	uv run -m http.server -d dist
 site:
 	deno run \
 		--allow-read=.,../sqlite-vec/dist/.wasm/sqlite3.wasm \

@@ -4,7 +4,7 @@ import { Post } from "./build.tsx";
 
 const pageCss = Deno.readTextFileSync("page.css");
 
-export function PostPage({ post }: { post: Post }) {
+export function PostPage({ post }: { post: Post }): h.JSX.Element {
   return (
     <html lang="en">
       <head>

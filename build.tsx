@@ -10,7 +10,6 @@ import { h } from "https://esm.sh/preact@10.5.15";
 import { renderToString } from "https://esm.sh/preact-render-to-string@5.1.19?deps=preact@10.5.15";
 
 import * as v from "npm:valibot";
-// @deno-types="npm:@types/markdown-it"
 import markdownit from "npm:markdown-it";
 import { include } from "npm:@mdit/plugin-include";
 import mdAnchor from "npm:markdown-it-anchor";
@@ -21,7 +20,7 @@ import {
   transformerMetaHighlight,
 } from "npm:@shikijs/transformers";
 import { fromHighlighter } from "npm:@shikijs/markdown-it/core";
-import { getHighlighter } from "npm:shiki";
+import { createHighlighter } from "npm:shiki";
 
 import { PostPage } from "./Post.tsx";
 import { HomePage } from "./Home.tsx";
@@ -35,7 +34,7 @@ const md = markdownit({
 });
 md.use(
   fromHighlighter(
-    await getHighlighter({
+    await createHighlighter({
       themes: [
         import("npm:shiki/themes/catppuccin-latte.mjs"),
         import("npm:shiki/themes/catppuccin-mocha.mjs"),
@@ -88,7 +87,7 @@ const FrontmatterSchema = v.object({
 });
 
 export interface Post {
-  frontmatter: v.Output<typeof FrontmatterSchema>;
+  frontmatter: v.InferOutput<typeof FrontmatterSchema>;
   body: string;
   slug: string;
   path: string;
@@ -119,6 +118,7 @@ async function main() {
       }
       const mdSource = Deno.readTextFileSync(mdPath);
       const { attrs, body } = extractFrontmatter(mdSource);
+      // @ts-ignore idgaf 
       if (attrs.skip) continue;
       const frontmatter = v.parse(FrontmatterSchema, attrs);
       if (frontmatter.build) {

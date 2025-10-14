@@ -224,7 +224,9 @@ button.theme {
 main {
   max-width: 48rem;
   margin: 0 auto;
+  padding: 2rem 1rem;
   padding-bottom: 6rem;
+
 }
 
 summary {
