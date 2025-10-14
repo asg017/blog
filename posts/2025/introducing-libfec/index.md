@@ -66,7 +66,7 @@ And `libfec` is no different! It's fast, easy to install, and works directly wit
 
 ## Introducing `libfec` 
 
-`libfec` is a single-binary CLI tool written in Rust, with [a variety of ways to install](https://alexgarcia.xyz/libfec/installation). 
+`libfec` is a single-binary CLI tool written in Rust, with [a variety of ways to install](https://alexgarcia.xyz/libfec/getting-started/installation). 
 
 The `libfec export` command allows you to export filing itemizations to CSVs/JSON/SQLite/Excel for easier analysis. Let's try it with [`FEC-1903265`](https://docquery.fec.gov/cgi-bin/forms/C00765164/1903265), the 2025 Q2 financial report for Alex Padilla, senator from California. To export the receipt itemizations from that filing, we can run:
 
