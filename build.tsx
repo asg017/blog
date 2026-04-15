@@ -33,6 +33,7 @@ const FrontmatterSchema = v.object({
   updated_at: v.optional(v.date()),
   build: v.optional(v.string()),
   skip: v.optional(v.boolean()),
+  draft: v.optional(v.boolean()),
   tag: stringOrStringArray,
   tags: stringOrStringArray,
 });

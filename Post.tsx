@@ -69,7 +69,7 @@ export function PostPage({ post }: { post: Post }): h.JSX.Element {
               <button class="theme"></button>
             </div>
           </div>
-          <h1>{post.frontmatter.title}</h1>
+          <h1>{post.frontmatter.title}{post.frontmatter.draft && <span style="color: orange; font-size: 0.6em; vertical-align: middle; margin-left: 0.5em;">DRAFT</span>}</h1>
           <p style="margin-top: .5rem; margin-bottom: 0.5rem; font-size: 15px;">
             {post.frontmatter.created_at
               .toISOString()

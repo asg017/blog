@@ -49,7 +49,7 @@ export function HomePage({ posts, tags, tagCounts }: { posts: Post[]; tags: stri
               )
               .map((post) => (
                 <div className="post-listing">
-                  <a href={post.path}>{post.frontmatter.title}</a>
+                  <a href={post.path}>{post.frontmatter.title}{post.frontmatter.draft && <span style="color: orange; font-size: 0.75em; margin-left: 0.5em;">DRAFT</span>}</a>
                   <div className="post-meta">
                     {post.frontmatter.created_at.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                     {post.frontmatter.tags.length > 0 && (
