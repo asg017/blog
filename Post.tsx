@@ -70,23 +70,26 @@ export function PostPage({ post }: { post: Post }): h.JSX.Element {
             </div>
           </div>
           <h1>{post.frontmatter.title}{post.frontmatter.draft && <span style="color: orange; font-size: 0.6em; vertical-align: middle; margin-left: 0.5em;">DRAFT</span>}</h1>
-          <p style="margin-top: .5rem; margin-bottom: 0.5rem; font-size: 15px;">
-            {post.frontmatter.created_at
-              .toISOString()
-              .substring(0, "yyyy-mm-dd".length)}{" "}
+          <p style="margin-top: .5rem; margin-bottom: 2.5rem; font-size: 15px;">
+            {(() => {
+              const d = post.frontmatter.created_at;
+              const month = d.toLocaleString("en-US", { month: "long" });
+              const day = d.getDate();
+              const suffix = [11,12,13].includes(day) ? "th" : ["st","nd","rd"][(day % 10) - 1] || "th";
+              return `${month} ${day}${suffix}, ${d.getFullYear()}`;
+            })()}{" "}
             by <a href="https://alexgarcia.xyz/">Alex Garcia</a>
+            {tags.length > 0 && (
+              <span style="font-size: 14px;" className="post-tags">
+                {tags.map((tag) => (
+                  <span>
+                    {" · "}
+                    <a href={`../../tag/${tag}/`}>#{tag}</a>
+                  </span>
+                ))}
+              </span>
+            )}
           </p>
-          {tags.length > 0 && (
-            <p style="margin-top: 0; margin-bottom: 2.5rem; font-size: 14px;" className="post-tags">
-              {tags.map((tag, i) => (
-                <span>
-                  {i > 0 && " "}
-                  <a href={`../../tag/${tag}/`}>#{tag}</a>
-                </span>
-              ))}
-            </p>
-          )}
-          {tags.length === 0 && <div style="margin-bottom: 2rem"></div>}
           <section
             dangerouslySetInnerHTML={{ __html: post.render() }}
           ></section>
