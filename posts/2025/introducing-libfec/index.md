@@ -4,6 +4,7 @@ description: Parse federal campaign filings
 created_at: 2025-10-13
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/Screenshot%202025-10-13%20at%2010.22.10%20PM.png
+tag: libfec
 ---
 
 <script type="module" src="./index.js"></script>

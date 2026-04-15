@@ -4,6 +4,7 @@ description: Install with Python, Node.js, Deno, Bun Rust, Go, C, WASM...
 created_at: 2024-08-01
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/Screen%20Shot%202024-08-01%20at%202.59.10%20AM.png
+tags: [sqlite-vec]
 ---
 
 <script type="module" src="./index.min.js"></script>

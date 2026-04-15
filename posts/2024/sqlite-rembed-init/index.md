@@ -4,6 +4,7 @@ description: Generate embeddings with pure SQL from OpenAI, Cohere, Nomic, llama
 created_at: 2024-07-25
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/Screen%20Shot%202024-07-24%20at%2010.42.43%20PM.png
+tag: sqlite-vec
 ---
 
 <script type="module" src="./index.min.js"></script>

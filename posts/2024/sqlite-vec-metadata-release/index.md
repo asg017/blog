@@ -4,6 +4,7 @@ description: Metadata, partition key, and auxiliary column support in sqlite-vec
 created_at: 2024-11-20
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/Screenshot%202024-11-20%20at%208.26.35%E2%80%AFAM.png
+tag: sqlite-vec
 ---
 
 <script type="module" src="./index.min.js"></script>

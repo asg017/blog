@@ -4,6 +4,7 @@ description: Generate text embeddings in SQL with GGUF models!
 created_at: 2024-07-24
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/Screen%20Shot%202024-07-23%20at%2011.37.14%20PM.png
+tag: sqlite-vec
 ---
 
 <script type="module" src="./index.min.js"></script>

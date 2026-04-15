@@ -4,6 +4,7 @@ description: Combine SQLite's builtin FTS5 full-text search extension with the s
 created_at: 2024-10-02
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/Screenshot%202024-10-02%20at%208.43.30%E2%80%AFAM.png
+tag: sqlite-vec
 ---
 
 <script type="module" src="./index.min.js"></script>

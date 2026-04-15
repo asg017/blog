@@ -1,10 +1,12 @@
 /** @jsx h */
 import { h } from "https://esm.sh/preact@10.5.15";
 import { Post } from "./build.tsx";
+import { RssLink } from "./RssDropdown.tsx";
 
 const pageCss = Deno.readTextFileSync("page.css");
 
 export function PostPage({ post }: { post: Post }): h.JSX.Element {
+  const tags = post.frontmatter.tags;
   return (
     <html lang="en">
       <head>
@@ -13,6 +15,7 @@ export function PostPage({ post }: { post: Post }): h.JSX.Element {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{post.frontmatter.title} | Alex Garcia's Blog</title>
 
+        <link rel="alternate" type="application/rss+xml" title="Alex Garcia's Blog" href="https://alexgarcia.xyz/blog/everything.xml" />
         <meta name="description" content={post.frontmatter.description} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:image" content={post.frontmatter.share_photo_url} />
@@ -62,16 +65,28 @@ export function PostPage({ post }: { post: Post }): h.JSX.Element {
               <a href="../../">Alex Garcia's Blog</a>
             </div>
             <div>
+              <RssLink href="../../everything.xml" />
               <button class="theme"></button>
             </div>
           </div>
           <h1>{post.frontmatter.title}</h1>
-          <p style="margin-top: .5rem; margin-bottom: 2.5rem; font-size: 15px;">
+          <p style="margin-top: .5rem; margin-bottom: 0.5rem; font-size: 15px;">
             {post.frontmatter.created_at
               .toISOString()
               .substring(0, "yyyy-mm-dd".length)}{" "}
             by <a href="https://alexgarcia.xyz/">Alex Garcia</a>
           </p>
+          {tags.length > 0 && (
+            <p style="margin-top: 0; margin-bottom: 2.5rem; font-size: 14px;" className="post-tags">
+              {tags.map((tag, i) => (
+                <span>
+                  {i > 0 && " "}
+                  <a href={`../../tag/${tag}/`}>#{tag}</a>
+                </span>
+              ))}
+            </p>
+          )}
+          {tags.length === 0 && <div style="margin-bottom: 2rem"></div>}
           <section
             dangerouslySetInnerHTML={{ __html: post.render() }}
           ></section>

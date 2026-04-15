@@ -4,6 +4,7 @@ description: Using sqlite-vec in different programming languages and runtimes
 created_at: 2024-05-23
 build: make dist
 share_photo_url: https://blog-static.alxg.xyz/2.png
+tags: sqlite-vec
 ---
 
 <script type="module" src="./index.min.js"></script>

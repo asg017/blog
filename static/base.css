@@ -75,6 +75,61 @@ button.theme {
   color: var(--blog-link-color);
 }
 
+.header > div {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.rss-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rss-link svg {
+  fill: var(--blog-link-color);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-list .tag {
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.tag-list .tag:hover {
+  text-decoration: underline;
+}
+
+.post-listing {
+  margin-bottom: 1rem;
+}
+
+.post-listing > a {
+  font-size: 1.05rem;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.6;
+  margin-top: 0.1rem;
+}
+
+.post-meta-tag {
+  font-size: 0.85rem;
+}
+
 /*
 
 html.dark .shiki,
